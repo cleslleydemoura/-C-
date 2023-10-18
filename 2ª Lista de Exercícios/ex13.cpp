@@ -1,47 +1,58 @@
 #include <stdio.h>
 #include <locale.h>
 
-/* ExercÌcio 13: Elabore um algoritmo que leia um n˙mero de entrada que indicar· a quantidade de registros a serem lidos (N). Em seguida algoritmo deve solicitar o sexo (M/F) e idade de N pessoas e ao final apresentar a mÈdia de idade de ambos os gÍneros catalogados. */
+/* Exerc√≠cio 13: Elabore um algoritmo que leia um numero de entrada que indicara a quantidade
+ de registros a serem lidos (N). Em seguida algoritmo deve solicitar o sexo (M/F)
+ e idade de N pessoas e ao final apresentar a media de idade de ambos os generos
+ catalogados. */
 
-int main () {
+int main() {
 	setlocale(LC_ALL, "Portuguese");
 	
-	int num;
-	
-    printf("Quantos registros a serem lidos? ");
-    scanf("%d", &num);
+ 	int i, qtdMasc=0, qtdFem=0, somaMasc=0, somaFem=0, qtdTotal, idade;
+    char txtSexo;
+    printf("Informe quantos alunos ser√£o pesquisados: ");
+    scanf("%i", &qtdTotal);
+    for (i=1; i<=qtdTotal; i++) {
+      do {
+        printf("Informe o sexo da %i. pessoa (M/F): ", i);
+        scanf("%s", &txtSexo);
+}
+      while (txtSexo != 'm' & txtSexo != 'M' & txtSexo != 'f' & txtSexo != 'F');
 
-    char nomeMaisVelho[50];
-    int idadeMaisVelha = -1;
-    char sexoMaisVelho;
+      do {
+        printf("Informe a idade da %i. pessoa: ", i);
+        scanf("%i", &idade);
+      }
+while ((idade <= 0) | (idade > 120));
+     
+      if (txtSexo == 'm' | txtSexo == 'M') {
+        somaMasc = somaMasc + idade;
+        qtdMasc +=1; // √© o mesmo que qtdMasc = qtdMasc+1;
+      }
+      else /*if (txtSexo == 'f' | txtSexo == 'F') */{
+        somaFem = somaFem + idade;
+        qtdFem = qtdFem + 1;  // √© o mesmo que qtdMasc++;
+      }
+    }  // fim do la√ßo for...
 
-    for (int i = 1; i <= num; i++) {
-        char nome[50];
-        int idade;
-        char sexo;
+  float f1=somaMasc;
+  float f2=qtdMasc;
 
-        printf("Informe o nome da pessoa %d: ", i);
-        scanf(" %49[^\n]", nome);
-
-        printf("Informe a idade da pessoa %d: ", i);
-        scanf("%d", &idade);
-        
-        printf("Informe o sexo da pessoa %d (M/F): ", i);
-        scanf(" %c", &sexo);
-
-        if (idade > idadeMaisVelha) {
-            idadeMaisVelha = idade;
-            sexoMaisVelho = sexo;
-            int j = 0;
-            while (nome[j] != '\0') {
-                nomeMaisVelho[j] = nome[j];
-                j++;
-            }
-            nomeMaisVelho[j] = '\0';
-        }
-    }
-
-   	printf("A pessoa mais velha È: %s, com %d anos e È do sexo: %c.\n", nomeMaisVelho, idadeMaisVelha, sexoMaisVelho);
-
-    return 0;
+  if (qtdMasc == 0)
+    printf("\n Nenhum indiv√≠duo do sexo masculino foi informado.");
+  else if (qtdMasc == 1)
+    printf("\n Somente um indiv√≠duo do sexo masculino foi informado com %i anos.", somaMasc);
+  else
+ printf("\n A m√©dia das idades dos %i homens √©: %0.2f", qtdMasc, (f1/f2));
+ 
+  f1=somaFem;
+  f2=qtdFem;
+ 
+  if (qtdFem == 0)
+    printf("\n Nenhum indiv√≠duo do sexo feminino foi informado.");
+  else if (qtdFem == 1)
+    printf("\n Somente um indiv√≠duo do sexo feminino foi informado com %i anos.", somaFem);
+  else
+    printf("\n A m√©dia das idades das %i mulheres √©: %0.2f", qtdFem, (f1/f2));
 }
