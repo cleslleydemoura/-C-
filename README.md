@@ -1,2 +1,2 @@
 # -C-
-<p>Exercícios da faculdade (Em linguagem C)</p>
+<p>Exercícios da faculdade em linguagem C.</p>
