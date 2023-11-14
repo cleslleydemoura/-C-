@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* Escreva um algorítimo que solicite ao usuário dois números reais e apresente um menu de opções com operações matemáticas */
+/* Escreva um algorÃ­timo que solicite ao usuÃ¡rio dois nÃºmeros reais e apresente um menu de opÃ§Ãµes com operaÃ§Ãµes matemÃ¡ticas */
 int ImprimirMenu() {
 	printf("\n******* CALCULADORA *******");
 	printf("\n * 1: Soma                *");
@@ -21,8 +21,8 @@ float somar(float A, float B) {
 	return(resultado);
 }
 
-float subtrair(float A, float B) /*  Essa é a assinatura da função Subtrair. Esse cabeçalho é obrigatório porque a função foi implementada após sua chamada
-									 no método principal*/ {
+float subtrair(float A, float B) /*  Essa Ã© a assinatura da funÃ§Ã£o Subtrair. Esse cabeÃ§alho Ã© obrigatÃ³rio, pois a funÃ§Ã£o foi implementada apÃ³s sua chamada
+									 no mÃ©todo principal*/ {
 	float resultado = A - B ;
 	return(resultado);
 }
