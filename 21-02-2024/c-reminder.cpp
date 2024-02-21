@@ -3,11 +3,11 @@
 int main() {
     float peso, altura, imc;
     printf("Digite seu peso: ");
-    scanf("%f", &peso);
+    scanf("%f", &peso); // o & aponta para qual vari√°vel est√° sendo atribu√≠da este valor.
     printf("Digite sua altura: ");
     scanf("%f", &altura);
     
     imc = peso / (altura * altura);
     
-    printf("Seu IMC È: %.2f", imc); // reminder: n„o se coloca & na frente da vari·vel como se coloca dentro do recebimento da vari·vel no scanf.
+    printf("Seu IMC √©: %.2f", imc); // reminder: n√£o se coloca & na frente da vari√°vel como se coloca dentro do recebimento da vari√°vel no scanf.
 }
